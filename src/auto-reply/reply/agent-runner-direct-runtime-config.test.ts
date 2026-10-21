@@ -774,7 +774,9 @@ describe("runReplyAgent runtime config", () => {
               executeAgentTurnMock.mock.calls[0]?.[0].getActiveSessionEntry()?.compactionCount,
             ).toBe(1);
             if (testCase.denyWrite) {
-              await expect(runMemoryFlushIfNeededMock.mock.results[0]?.value).resolves.toMatchObject({
+              await expect(
+                runMemoryFlushIfNeededMock.mock.results[0]?.value,
+              ).resolves.toMatchObject({
                 outcome: "skipped",
               });
             }
